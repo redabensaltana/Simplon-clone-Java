@@ -42,10 +42,56 @@ public class Main {
         return selectNum;
     }
 
-    public static void clearScreen(){
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
+    //public static void clearScreen(){
+      //  System.out.print("\033[H\033[2J");
+        //System.out.flush();
+    //}
 
 
 }
+
+/*
+import services.Courier;
+import services.SendService;
+import models.SendEnhancedRequestBody;
+import models.SendEnhancedResponseBody;
+import models.SendRequestMessage;
+import com.google.gson.Gson;
+import java.io.IOException;
+import java.util.HashMap;
+
+public class App {
+    public static void main(String[] args) {
+        Courier.init("YOUR_AUTH_TOKEN_HERE");
+
+        SendEnhancedRequestBody request = new SendEnhancedRequestBody();
+        SendRequestMessage message = new SendRequestMessage();
+
+        HashMap<String, String> to = new HashMap<String, String>();
+        to.put("email", "bensaltana.reda@gmail.com");
+        message.setTo(to);
+
+        HashMap<String, Object> content = new HashMap<String, Object>();
+        content.put("title", "Welcome!");
+        content.put("community", "Thanks for signing up, {{name}}");
+        message.setContent(content);
+
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        data.put("name", "Peter Parker");
+        message.setData(data);
+
+        HashMap<String, Object> routing = new HashMap<String, Object>();
+        routing.put("method", "single");
+        routing.put("channels", ["email"]);
+        message.setRouting(routing);
+
+        request.setMessage(message);
+        try {
+            SendEnhancedResponseBody response = new SendService().sendEnhancedMessage(request);
+            System.out.println(response);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+*/

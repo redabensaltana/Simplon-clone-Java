@@ -89,9 +89,9 @@ public class Admin extends Account{
         System.out.println("enter mail:");
         mail = sc.next();
     Student.students.add(new Student(fname,lname,uname,pass,mail));
-        Connection connection = new MyJDBC().connection();
-        Statement statement = connection.createStatement();
-        statement.execute("INSERT INTO `simplon_clone`.`student` (`firstname`, `lastname`, `username`, `password`, `mail`) VALUES ('"+fname+"','"+lname+"','"+uname+"','"+pass+"','"+mail+"');");
+//        Connection connection = new MyJDBC().connection();
+//        Statement statement = connection.createStatement();
+//        statement.execute("INSERT INTO `simplon_clone`.`student` (`firstname`, `lastname`, `username`, `password`, `mail`) VALUES ('"+fname+"','"+lname+"','"+uname+"','"+pass+"','"+mail+"');");
 
     //adminMenu();
     }
@@ -109,9 +109,9 @@ public class Admin extends Account{
         System.out.println("enter password:");
         pass = sc.next();
         Teacher.teachers.add(new Teacher(fname,lname,uname,pass));
-        Connection connection = new MyJDBC().connection();
-        Statement statement = connection.createStatement();
-        statement.execute("INSERT INTO `simplon_clone`.`teacher` (`firstname`, `lastname`, `username`, `password`) VALUES ('"+fname+"', "+lname+", '"+uname+"', '"+pass+"');");
+//        Connection connection = new MyJDBC().connection();
+//        Statement statement = connection.createStatement();
+//        statement.execute("INSERT INTO `simplon_clone`.`teacher` (`firstname`, `lastname`, `username`, `password`) VALUES ('"+fname+"', "+lname+", '"+uname+"', '"+pass+"');");
        // adminMenu();
     }
     private void addPromo(){

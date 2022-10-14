@@ -16,12 +16,12 @@ public class Teacher extends Account{
     }
 
     public static void login() throws SQLException {
-        Connection connection = new MyJDBC().connection();
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM simplon_clone.teacher;");
-        while(resultSet.next()){
-            teachers.add(new Teacher(resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5)));
-        }
+//        Connection connection = new MyJDBC().connection();
+//        Statement statement = connection.createStatement();
+//        ResultSet resultSet = statement.executeQuery("SELECT * FROM simplon_clone.teacher;");
+//        while(resultSet.next()){
+//            teachers.add(new Teacher(resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5)));
+//        }
         Scanner sc = new Scanner(System.in);
         String username = null;
         String password = null;
@@ -90,7 +90,7 @@ public class Teacher extends Account{
             if (student.promo == null){
                 newStudents.add(student);
                 System.out.println(newStudents.indexOf(student)+"/ "+student.firstname+" "+student.lastname);
-            };
+            }
         }
         System.out.println("\nyour choice :");
         choiceStudent = sc.nextInt();
@@ -118,5 +118,10 @@ public class Teacher extends Account{
         System.out.println("enter deadline:");
         deadline = sc.nextInt();
         teacher.promo.briefs.add(new Brief(title,body,deadline));
+        for(Student student : Student.students){
+            if(student.promo.name.equals(teacher.promo.name)){
+                Mail.send("text","text","test",student.mail);
+            }
+        }
     }
 }

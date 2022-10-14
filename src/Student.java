@@ -18,12 +18,12 @@ public class Student extends Account{
     }
 
     public static void login() throws SQLException {
-        Connection connection = new MyJDBC().connection();
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM simplon_clone.student;");
-        while(resultSet.next()){
-            students.add(new Student(resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6)));
-        }
+//        Connection connection = new MyJDBC().connection();
+//        Statement statement = connection.createStatement();
+//        ResultSet resultSet = statement.executeQuery("SELECT * FROM simplon_clone.student;");
+//        while(resultSet.next()){
+//            students.add(new Student(resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6)));
+//        }
         Scanner sc = new Scanner(System.in);
         String username = null;
         String password = null;
@@ -37,7 +37,7 @@ public class Student extends Account{
         for(Student student : Student.students){
             if(username.equals(student.username) && password.equals(student.password)){
                 studentMenu(student);
-            }else if(!username.equals(student.username) || !password.equals(student.password)){
+            }else{
                 Student.login();
             }
         }
